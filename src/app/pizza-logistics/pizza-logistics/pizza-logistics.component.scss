@@ -1,5 +1,38 @@
-:host {
-  .mat-card-title {
-    background: orange;
+.new-order,.open-orders {
+  padding-bottom: 30px;
+  .mat-card-header{
+    background-color:orange;
+    padding: 10px 10px 0 10px;
   }
+  .mat-card-title {
+    color: #fff;
+    margin: 0;
+  }
+  .mat-card-content{
+    padding: 10px;
+  }
+  .new-order-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  button.submit {
+    background-color: orange;
+    color: #fff;
+  }
+  button:disabled {
+    background-color: red;
+  }
+  .mat-focused .placeholder {
+    color: transparent;
+  }
+  .placeholder {
+    color: rgba(0,0,0,0.7);
+  }
+  .mat-error {
+    color: red;
+    margin-top: 5px;
+  }
+}
+.open-orders {
+  
 }

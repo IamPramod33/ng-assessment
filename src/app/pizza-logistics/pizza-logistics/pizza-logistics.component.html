@@ -1,0 +1,89 @@
+<mat-card class="new-order" role="group">
+  <form [formGroup]="newOrderForm" (ngSubmit)="placeOrder()">
+    <mat-card-header>
+      <mat-card-title>New Order</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="new-order-content">
+      <mat-form-field matLine [floatLabel]="'never'">
+        <input matInput formControlName="customerName" placeholder="Customer Name" />
+        <mat-error
+          *ngIf="
+            !newOrderForm.controls['customerName'].valid &&
+            newOrderForm.controls['customerName'].touched &&
+            newOrderForm.get('customerName').hasError('required')
+          "
+        >
+          Customer Name is Required
+        </mat-error>
+        <mat-error
+          *ngIf="
+            !newOrderForm.controls['customerName'].valid &&
+            newOrderForm.controls['customerName'].touched &&
+            newOrderForm.get('customerName').hasError('pattern')
+          "
+        >
+          Customer Name should be Alpha Numeric
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field matLine [floatLabel]="'never'">
+        <mat-select formControlName="toppings" [(value)]="selectedToppings" multiple placeholder="Toppings">
+          <mat-option [value]="topping" *ngFor="let topping of toppingList">{{ topping.name }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            !newOrderForm.controls['toppings'].valid &&
+            newOrderForm.controls['toppings'].touched &&
+            newOrderForm.get('toppings').hasError('required')
+          "
+        >
+          Topping Selection is Required
+        </mat-error>
+        <!-- <mat-placeholder class="placeholder">Toppings</mat-placeholder> -->
+      </mat-form-field>
+      <mat-form-field matLine [floatLabel]="'never'">
+        <mat-select formControlName="size" placeholder="Size">
+          <mat-option [value]="val.size" *ngFor="let val of pizzaSize">{{ val.name }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            !newOrderForm.controls['size'].valid &&
+            newOrderForm.controls['size'].touched &&
+            newOrderForm.get('size').hasError('required')
+          "
+        >
+          Size Selection is Required
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button [disabled]="!newOrderForm.valid" color="primary" class="submit" type="submit">
+        Place Order
+      </button>
+    </mat-card-content>
+  </form>
+</mat-card>
+<mat-card class="open-orders" role="group">
+  <mat-card-header>
+    <mat-card-title>Open Orders</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table>
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Toppings</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.id }}</td>
+          <td>
+            <span *ngFor="let topping of order.toppings">
+              {{ this.toppingList[topping.id].name }}
+            </span>
+          </td>
+          <td>{{ orderState[order.state] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
