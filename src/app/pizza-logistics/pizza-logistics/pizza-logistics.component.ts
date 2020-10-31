@@ -1,9 +1,7 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { PizzaLogisticsService } from 'src/app/core/services/pizza-logistics.service';
-import { OrderState } from 'src/app/shared/models/order-state.model';
 import { Order } from 'src/app/shared/models/order.model';
 import { PizzaSize } from 'src/app/shared/models/pizza-size.model';
 import { Topping } from 'src/app/shared/models/topping.model';

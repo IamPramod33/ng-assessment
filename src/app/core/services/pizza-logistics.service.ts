@@ -12,11 +12,9 @@ export class PizzaLogisticsService {
 
   getToppings() {
     return this.http.get<Topping[]>(`http://localhost:4300/toppings`);
-    // return this.http.get<Topping[]>(`/api/login`);
   }
   getOrders() {
     return this.http.get<Order[]>(`http://localhost:4300/orders`);
-    // return this.http.get<Topping[]>(`/api/login`);
   }
 
 }

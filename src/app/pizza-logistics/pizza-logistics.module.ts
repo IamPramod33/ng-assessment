@@ -8,7 +8,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { PizzaLogisticsRoutingModule } from './pizza-logistics-routing.module';
 import { PizzaLogisticsComponent } from './pizza-logistics/pizza-logistics.component';
-import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { MatTableModule } from '@angular/material';
     MatSelectModule,
     MatButtonModule,
     MatInputModule,
-    MatTableModule,
     MatButtonModule,
   ],
 })
